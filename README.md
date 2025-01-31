@@ -15,3 +15,11 @@ modify package.json as:
 install express
 
 `npm install express`
+
+run nodemon for constant `app.js` reloading
+
+`npx nodemon`
+
+to stop nodemon
+
+`ctrl + c`
