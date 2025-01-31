@@ -1,0 +1,24 @@
+{
+  "name": "smartpool",
+  "version": "1.0.0",
+  "description": "Smart pool is a website created by RJ Fredrick Rico made to help track and organize cue data.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RJRico17/smartpool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RJRico17/smartpool/issues"
+  },
+  "homepage": "https://github.com/RJRico17/smartpool#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
