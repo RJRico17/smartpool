@@ -2,7 +2,7 @@
   "name": "smartpool",
   "version": "1.0.0",
   "description": "Smart pool is a website created by RJ Fredrick Rico made to help track and organize cue data.",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/RJRico17/smartpool#readme",
   "dependencies": {
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
