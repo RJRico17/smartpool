@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="img/none.png">
+    <script src="script.js" defer></script>
+    <title>Pool Scorebug</title>
+</head>
+<body>
+    <div class="backbar">
+        <div class="playeronehud">
+            <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+            <div class="playeronename"><span id="p1name">Lorem</span></div>
+            <div class="playeronescore"><span id="p1score">0</span></div>
+        </div>
+        <div class="raceto">
+            <p>Race to <span id="racetovalue">0</span></p>
+        </div>
+        <div class="playertwohud">
+            <div class="playertwoscore"><span id="p2score">0</span></div>
+            <div class="playertwoname"><span id="p2name">Ispum</span></div>
+            <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+        </div>
+    </div>
+
+    <br><br><br><hr><p id="control-line">--SHOW HUD ABOVE ON BOTTOM OF STREAM--</p><hr>
+    <h1>Controls</h1>
+    <div class="controls">
+        <input type="number" id="racevalue">Race To</input><br>
+        <input type="text" id="userone">Player One</input><br>
+        <select name="p1country" id="p1country">
+            <option value="none">Select a country</option>
+            <option value="canada">Canada</option>
+            <option value="japan">Japan</option>
+            <option value="philippines">Philippines</option>
+            <option value="south-korea">South Korea</option>
+            <option value="thailand">Thailand</option>
+            <option value="ukraine">Ukraine</option>
+            <option value="united-states">United States</option>
+            <option value="vietnam">Vietnam</option>
+        </select>
+        <button id="p1sub">-</button><button id="p1add">+</button><br>
+        <input type="text" id="usertwo">Player Two</input><br>
+        <input type="color" id="colorPicker" value="#ffffff"> 
+        <select name="p2country" id="p2country">
+            <option value="none">Select a country</option>
+            <option value="canada">Canada</option>
+            <option value="japan">Japan</option>
+            <option value="philippines">Philippines</option>
+            <option value="south-korea">South Korea</option>
+            <option value="thailand">Thailand</option>
+            <option value="ukraine">Ukraine</option>
+            <option value="united-states">United States</option>
+            <option value="vietnam">Vietnam</option>
+        </select>
+        <button id="p2sub">-</button><button id="p2add">+</button><br>
+        <button id="btnClick">Submit</button>
+        <button id="btnReset">Reset All</button>
+    </div>
+   
+
+</body>
+</html>

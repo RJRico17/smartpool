@@ -1,0 +1,75 @@
+/* SCOREBUG CSS */
+.backbar {
+    border-radius: 25px;
+    overflow: hidden;
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+#control-line {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+.raceto {
+    background-color: #333333;
+    width: 10%;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+.playeronehud, .playertwohud {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+.playeronehud {
+    background-image: linear-gradient(to right,#cb6ce6,#004aad);
+    border-radius: 25px 0px 0px 25px;
+}
+.playertwohud {
+    background-image: linear-gradient(to right,#ff3131,#ff914d);
+    border-radius: 0px 25px 25px 0px;
+}
+.playeronescore, .playertwoscore {
+    font-size: 2.25em;
+    font-weight: bolder;
+}
+.playeronename, .playertwoname {
+    font-size: 2em;
+}
+.playeronename {
+    width: 70%;
+    text-align: right;
+    margin: auto;
+}
+.playertwoname {
+    width: 70%;
+    text-align: left;
+    margin: auto;
+}
+.playeronescore {
+    width: 15%;
+    text-align: center;
+    margin: auto;
+}
+.playertwoscore {
+    width: 15%;
+    text-align: center;
+    margin: auto;
+}
+.playeroneflag {
+    width: 15%;
+    text-align: center;
+    margin: auto;
+}
+.playertwoflag {
+    width: 15%;
+    text-align: center;
+    margin: auto;
+}
