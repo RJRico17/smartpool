@@ -6,7 +6,7 @@ Smart pool is a website created by RJ Fredrick Rico made to help track and organ
 
 install Node.js, nmp, and express
 
-`nymp init -y`
+`npm init -y`
 
 modify package.json as:
 
@@ -15,3 +15,11 @@ modify package.json as:
 install express
 
 `npm install express`
+
+run nodemon for constant `app.js` reloading
+
+`npx nodemon`
+
+to stop nodemon
+
+`ctrl + c`
