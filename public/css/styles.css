@@ -73,3 +73,39 @@
     text-align: center;
     margin: auto;
 }
+.controls {
+    display: flex;
+}
+.controls > div {
+    border: 1px solid red;
+    flex-direction: row;
+    width: 33%;
+    padding: 10px
+}
+input {
+    width: 100%;
+}
+input[type=text] {
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+select {
+    width: 40%;
+    padding: 12px 20px;
+}
+.playeronecontrol > button {
+    width: 20%;
+    padding: 12px 20px;
+}
+.playertwocontrol > button {
+    width: 20%;
+    padding: 12px 20px;
+}
+.neutralcontrol {
+    display: flex;;
+}
+.neutralcontrol > button {
+    flex-direction: row;
+    width: 30%;
+    padding: 12px 20px;
+}

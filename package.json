@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/RJRico17/smartpool#readme",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.2"
   },
   "devDependencies": {

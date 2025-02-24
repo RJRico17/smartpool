@@ -28,11 +28,12 @@
     <br><br><br><hr><p id="control-line">--SHOW HUD ABOVE ON BOTTOM OF STREAM--</p><hr>
     <h1>Controls</h1>
     <div class="controls">
-        <input type="number" id="racevalue">Race To</input><br>
-        <input type="text" id="userone">Player One</input><br>
+        <div class="playeronecontrol">
+            <input type="text" id="userone" placeholder="Player One"></input><br>
         <select name="p1country" id="p1country">
             <option value="none">Select a country</option>
             <option value="canada">Canada</option>
+            <option value="cambodia">Cambodia</option>
             <option value="japan">Japan</option>
             <option value="philippines">Philippines</option>
             <option value="south-korea">South Korea</option>
@@ -42,11 +43,18 @@
             <option value="vietnam">Vietnam</option>
         </select>
         <button id="p1sub">-</button><button id="p1add">+</button><br>
-        <input type="text" id="usertwo">Player Two</input><br>
-        <input type="color" id="colorPicker" value="#ffffff"> 
+        </div>
+        <div class="neutralcontrol">
+            <input type="number" id="racevalue" min="0" placeholder="Race to Score"><br>
+            <button id="btnClick">Submit</button><br>
+            <button id="btnReset">Reset All</button>
+        </div>
+        <div class="playertwocontrol">
+            <input type="text" id="usertwo" placeholder="Player Two"></input><br>
         <select name="p2country" id="p2country">
             <option value="none">Select a country</option>
             <option value="canada">Canada</option>
+            <option value="cambodia">Cambodia</option>
             <option value="japan">Japan</option>
             <option value="philippines">Philippines</option>
             <option value="south-korea">South Korea</option>
@@ -56,10 +64,7 @@
             <option value="vietnam">Vietnam</option>
         </select>
         <button id="p2sub">-</button><button id="p2add">+</button><br>
-        <button id="btnClick">Submit</button>
-        <button id="btnReset">Reset All</button>
+        </div>
     </div>
-   
-
 </body>
 </html>
