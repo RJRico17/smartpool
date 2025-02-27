@@ -20,6 +20,10 @@ install ejs
 
 `npm i ejs express`
 
+install nodemon 
+
+`npm i nodemon`
+
 run nodemon for constant `app.js` reloading
 
 `npx nodemon`
