@@ -101,11 +101,9 @@ function trackAttempt(player, made) {
     if (player === "p1") {
         p1attempt++;
         if (made) p1make++;
-        alert(`Attempts: ${p1attempt}\nMade: ${p1make}`);
     } else {
         p2attempt++;
         if (made) p2make++;
-        alert(`Attempts: ${p2attempt}\nMade: ${p2make}`);
     }
 }
 
@@ -115,6 +113,8 @@ function calcPercentage(x, y) {
 
 document.querySelector("#p1make").onclick = () => trackAttempt("p1", true);
 document.querySelector("#p1miss").onclick = () => trackAttempt("p1", false);
+document.querySelector("#p2make").onclick = () => trackAttempt("p2", true);
+document.querySelector("#p2miss").onclick = () => trackAttempt("p2", false);
 
 // Show player info
 document.querySelector("#p1pot").onclick = function () {
@@ -122,11 +122,14 @@ document.querySelector("#p1pot").onclick = function () {
     document.querySelector("#p1info").classList.toggle("p1infoshow");
 };
 document.querySelector("#p1missed").onclick = function () {
+    document.querySelector("#p1statistic").innerHTML = "Missed Balls: " +  (p1attempt - p1make);
     document.querySelector("#p1info").classList.toggle("p1infoshow");
 };
 document.querySelector("#p2pot").onclick = function () {
+    document.querySelector("#p2statistic").innerHTML = "Pot Success Rate: " + calcPercentage(p2make,p2attempt).toFixed(0) + "%";
     document.querySelector("#p2info").classList.toggle("p2infoshow");
 };
 document.querySelector("#p2missed").onclick = function () {
+    document.querySelector("#p2statistic").innerHTML = "Missed Balls: " +  (p2attempt - p2make);
     document.querySelector("#p2info").classList.toggle("p2infoshow");
 };
