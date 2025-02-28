@@ -1,5 +1,10 @@
 let p1score = 0;
 let p2score = 0; 
+let p1attempt = 0;
+let p2attempt = 0;
+let p1make = 0;
+let p2make = 0;
+
 document.getElementById("btnClick").onclick = function() {
     document.getElementById("racetovalue").innerHTML = document.getElementById("racevalue").value;
     document.getElementById("p1name").innerHTML = document.getElementById("userone").value;
@@ -9,7 +14,7 @@ document.getElementById("btnClick").onclick = function() {
 }
 document.getElementById("btnReset").onclick = function() {
     if (confirm("Are you sure you want to reset?")) {
-        document.getElementById("racetovalue").innerHTML = 0;
+        document.getElementById("racetovalue").innerHTML = "0";
         document.getElementById("p1name").innerHTML = "Lorem";
         document.getElementById("p2name").innerHTML = "Ipsum";
         document.getElementById("p1flag").innerHTML = '<img src="img/none.png" width="45px" height="45px">';
@@ -32,4 +37,21 @@ document.getElementById("p2sub").onclick = function() {
 document.getElementById("p2add").onclick = function() {
     p2score += 1;
     document.getElementById("p2score").innerHTML = p2score.toString();
+}
+
+document.getElementById("p1make").onclick = function() {
+    p1attempt+= 1;
+    p1make+= 1;
+    alert("attempted: " + p1attempt);
+    alert("made: " + p1make);
+}
+document.getElementById("p1miss").onclick = function() {
+    p1attempt+= 1;
+    alert("attempted: " + p1attempt);
+    alert("made: " + p1make);
+}
+
+document.getElementById("p1pot").onclick = function() {
+    const element = document.getElementById("p1info");
+    element.className = "p1infoshow";
 }

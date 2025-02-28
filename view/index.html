@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" href="../public/css/styles.css" rel="stylesheet">
+    <link type="text/css" href="css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="img/none.png">
     <script src="script.js" defer></script>
     <title>Pool Scorebug</title>
 </head>
 <body>
+    <br><br><br>
+    <div class="playerinfo">
+        <div class="p1info" id="p1info">
+            <p>Test</p>
+        </div>
+        <div class="p2info">
+            <p>Test</p>
+        </div>
+    </div>
     <div class="backbar">
         <div class="playeronehud">
             <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
@@ -25,7 +34,7 @@
         </div>
     </div>
 
-    <br><br><br><hr><p id="control-line">--SHOW HUD ABOVE ON BOTTOM OF STREAM--</p><hr>
+    <br><br><hr><p id="control-line">--SHOW HUD ABOVE ON BOTTOM OF STREAM--</p><hr>
     <h1>Controls</h1>
     <div class="controls">
         <div class="playeronecontrol">
@@ -43,9 +52,11 @@
             <option value="vietnam">Vietnam</option>
         </select>
         <button id="p1sub">-</button><button id="p1add">+</button><br>
+        <button id="p1make">Make ball</button><button id="p1miss">Miss Ball</button><br>
+        <button id="p1pot">Display Pot%</button><button id="p1missed">Show Missed</button><br>
         </div>
         <div class="neutralcontrol">
-            <input type="number" id="racevalue" min="0" placeholder="Race to Score"><br>
+            <input type="number" id="racevalue" min="0" max="21" placeholder="Race to Score"><br>
             <button id="btnClick">Submit</button><br>
             <button id="btnReset">Reset All</button>
         </div>
