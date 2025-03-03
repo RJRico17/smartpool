@@ -1,9 +1,19 @@
 # smartpool
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/XIaBXSt"  ><a href="//imgur.com/a/XIaBXSt">smartpool hud</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-![An example picture of the HUD](https://imgur.com/a/XIaBXSt)
+![An example of the smartpool scorebug](https://github.com/RJRico17/smartpool/blob/main/view/img/hud.png)
 
 Smart pool is a website created by RJ Fredrick Rico made to help track and organize cue data.
+
+Functions include:
+  - Match score keeping
+  - Database of previous games
+  - Statistic trackers
+
+## built using
+
+Node.js
+
+MariaDB
 
 ## how to run
 
@@ -34,3 +44,11 @@ run nodemon for constant `app.js` reloading
 to stop nodemon
 
 `ctrl + c`
+
+## contact 
+
+For any inquiries regarding smartpool or the contents within, please contact RJ directly:
+
+Email: <fredrickalexander1727@gmail.com>
+
+LinkedIn: [RJ Fredrick Rico](https://www.linkedin.com/in/rjfredrickrico/)
