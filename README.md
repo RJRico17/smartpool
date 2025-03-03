@@ -9,6 +9,12 @@ Functions include:
   - Database of previous games
   - Statistic trackers
 
+## built using
+
+Node.js
+
+MariaDB
+
 ## how to run
 
 install Node.js, nmp, and express
