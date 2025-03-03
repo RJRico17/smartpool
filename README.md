@@ -1,5 +1,7 @@
 # smartpool
 
+<img src="https://imgur.com/a/XIaBXSt">
+
 Smart pool is a website created by RJ Fredrick Rico made to help track and organize cue data.
 
 ## how to run
