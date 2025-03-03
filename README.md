@@ -4,6 +4,11 @@
 
 Smart pool is a website created by RJ Fredrick Rico made to help track and organize cue data.
 
+Functions include:
+  - Match score keeping
+  - Database of previous games
+  - Statistic trackers
+
 ## how to run
 
 install Node.js, nmp, and express
