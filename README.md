@@ -1,5 +1,6 @@
 # smartpool
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/XIaBXSt"  ><a href="//imgur.com/a/XIaBXSt">smartpool hud</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 ![An example picture of the HUD](https://imgur.com/a/XIaBXSt)
 
 Smart pool is a website created by RJ Fredrick Rico made to help track and organize cue data.
