@@ -9,7 +9,6 @@
     <title>Pool Scorebug</title>
 </head>
 <body>
-    <br><br><br>
     <div class="playerinfo">
         <div class="p1info" id="p1info">
             <p><span id="p1statistic">Test</span></p>
@@ -33,6 +32,17 @@
             <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
         </div>
     </div>
+    <div class="ballbackbar">
+        <img src="img/numberBalls/one.png" id="one-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/two.png" id="two-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/three.png" id="three-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/four.png" id="four-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/five.png" id="five-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/six.png" id="six-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/seven.png" id="seven-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/eight.png" id="eight-copy" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/nine.png" id="nine-copy" class="ball" width="45px" height="45px">
+    </div>
 
     <br><br><hr><p id="control-line">--SHOW HUD ABOVE ON BOTTOM OF STREAM--</p><hr>
     <h1>Controls</h1>
@@ -52,7 +62,7 @@
             <option value="vietnam">Vietnam</option>
         </select><br>
         <button id="p1sub">-</button><button id="p1add">+</button><br>
-        <button id="p1make">Make ball</button><button id="p1miss">Miss Ball</button><br>
+        <button id="p1make">Make ball: <span id="p1mades">0</span></button><button id="p1miss">Miss Ball: <span id="p1missed">0</span></button><br>
         <button id="p1pot">Display Pot%</button><button id="p1missed">Show Missed</button><br>
         </div>
         <div class="neutralcontrol">
@@ -75,9 +85,20 @@
             <option value="vietnam">Vietnam</option>
         </select><br>
         <button id="p2sub">-</button><button id="p2add">+</button><br>
-        <button id="p2make">Make ball</button><button id="p2miss">Miss Ball</button><br>
+        <button id="p2make">Make ball: <span id="p2mades">0</span></button><button id="p2miss">Miss Ball: <span id="p2missed">0</span></button><br>
         <button id="p2pot">Display Pot%</button><button id="p2missed">Show Missed</button><br>
         </div>
+    </div>
+    <div class="ballbackbar">
+        <img src="img/numberBalls/one.png" id="one" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/two.png" id="two" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/three.png" id="three" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/four.png" id="four" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/five.png" id="five" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/six.png" id="six" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/seven.png" id="seven" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/eight.png" id="eight" class="ball" width="45px" height="45px">
+<img src="img/numberBalls/nine.png" id="nine" class="ball" width="45px" height="45px">
     </div>
 </body>
 </html>

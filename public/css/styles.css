@@ -127,7 +127,7 @@ select {
 
 /* CHATGPT REFORMED CSS */
 
- /* SCOREBUG CSS */
+/* SCOREBUG CSS */
 
 /* Common styles for text alignment, font, and color */
 .backbar {
@@ -140,10 +140,25 @@ select {
     display: flex;
     justify-content: center;
 }
-
+.ballbackbar {
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 5px auto 0px auto;
+    width: 23%;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 5px;
+}
+.ballbackbar > img:hover {
+    opacity: 70%;
+}
+.hidden {
+    visibility: hidden;
+  }
 #control-line {
     text-align: center;
-    background-color: black;
+    background-color: white;
 }
 
 .raceto {

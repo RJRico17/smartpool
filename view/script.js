@@ -100,10 +100,20 @@ document.querySelector("#p2add").onclick = () => updateScore("p2", 1);
 function trackAttempt(player, made) {
     if (player === "p1") {
         p1attempt++;
-        if (made) p1make++;
+        if (made) {
+            p1make++
+            document.querySelector("#p1mades").innerHTML = p1make.toString();
+            return;
+        }
+        document.querySelector("#p1missed").innerHTML = p1attempt.toString();
     } else {
         p2attempt++;
-        if (made) p2make++;
+        if (made) {
+            p2make++;
+            document.querySelector("#p2mades").innerHTML = p2make.toString();
+            return;
+        }
+        document.querySelector("#p2missed").innerHTML = p2attempt.toString();
     }
 }
 
@@ -122,7 +132,7 @@ document.querySelector("#p1pot").onclick = function () {
     document.querySelector("#p1info").classList.toggle("p1infoshow");
 };
 document.querySelector("#p1missed").onclick = function () {
-    document.querySelector("#p1statistic").innerHTML = "Missed Balls: " +  (p1attempt - p1make);
+    document.querySelector("#p1statistic").innerHTML = "Missed Balls: " +  (p1attempt - p1make).toString();
     document.querySelector("#p1info").classList.toggle("p1infoshow");
 };
 document.querySelector("#p2pot").onclick = function () {
@@ -133,3 +143,13 @@ document.querySelector("#p2missed").onclick = function () {
     document.querySelector("#p2statistic").innerHTML = "Missed Balls: " +  (p2attempt - p2make);
     document.querySelector("#p2info").classList.toggle("p2infoshow");
 };
+// Select all the balls by their class name
+const balls = document.querySelectorAll('.ball');
+
+// Add a click event listener to each ball
+balls.forEach(ball => {
+  ball.addEventListener('click', () => {
+    // Add the 'hidden' class to the clicked ball to make it disappear
+    ball.classList.add('hidden');
+  });
+});
