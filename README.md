@@ -38,3 +38,10 @@ run nodemon for constant `app.js` reloading
 to stop nodemon
 
 `ctrl + c`
+
+## contact 
+
+For any inquiries regarding smartpool or the contents within, please contact RJ directly:
+Discord: <@__rjjjjj__>
+Email: <fredrickalexander1727@gmail.com>
+LinkedIn: [RJ Fredrick Rico](https://www.linkedin.com/in/rjfredrickrico/)
