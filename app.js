@@ -1,5 +1,10 @@
 import express from "express";
+// const express = require("express");
+// const multer = require("multer");
+// const cors = require("cors");
+// const path = require("path");
 const app = express();
+// app.use(cors());
 app.use(express.static('public'));
 app.use(express.static('view'));
 app.set('view engine','ejs');
@@ -20,4 +25,21 @@ app.get('/scorebug', (req,res) => {
 
 // app.get('/', (req, res) => {
 //     res.sendFile(`${import.meta.dirname}/view/scorebug.html`);
+// });
+
+
+
+//VIDEO STUFF
+
+// const storage = multer.diskStorage({
+//     destination: "uploads/",
+//     filename: (req, file, cb) => {
+//         cb(null, Date.now() + path.extname(file.originalname));
+//     }
+// });
+
+// const upload = multer({ storage });
+
+// app.post("/upload", upload.single("video"), (req, res) => {
+//     res.json({ message: "Video uploaded successfully", filename: req.file.filename });
 // });

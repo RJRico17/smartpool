@@ -60,6 +60,18 @@ let p1score = 0, p2score = 0;
 let p1attempt = 0, p2attempt = 0;
 let p1make = 0, p2make = 0;
 
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+
 document.querySelector("#btnClick").onclick = function () {
     document.querySelector("#racetovalue").textContent = document.querySelector("#racevalue").value;
     document.querySelector("#p1name").textContent = document.querySelector("#userone").value;

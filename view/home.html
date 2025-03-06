@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="css/homestyle.css" rel="stylesheet">
     <link type="text/css" href="../public/css/homestyle.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="img/none.png">
     <title>Document</title>
+    <script defer>
+        let mediaRecorder;
+        let recordedChunks = [];
+
+        async function setupStream() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        const videoElement = document.getElementById('video');
+        videoElement.srcObject = stream;
+        videoElement.muted = true; // Mute the local playback to avoid feedback
+
+        mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+
+        mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) {
+                recordedChunks.push(event.data);
+            }
+        };
+
+        mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks, { type: 'video/webm' });
+            const url = URL.createObjectURL(blob);
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = url;
+            downloadLink.download = 'recording.webm';
+            downloadLink.style.display = 'block';
+        };
+
+        document.getElementById('startBtn').addEventListener('click', () => {
+            recordedChunks = [];
+            mediaRecorder.start();
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            mediaRecorder.stop();
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+        });
+
+    } catch (error) {
+        console.error('Error accessing media devices:', error);
+        alert('Could not access webcam/microphone. Please check permissions.');
+    }
+}
+
+        setupStream();
+    </script>
 </head>
 <body>
     <div class="navbar">
@@ -18,6 +68,7 @@
         <a href="">Contact</a>
     </div>
     <div class="main">
+        <!-- START LEFT MAIN -->
         <div class="left-main">
             <div class="aboutus">
                 <div class="aboutusblurb">
@@ -25,83 +76,65 @@
                 <hr>
                     <p>SmartPool is a platform developed by RJ Fredrick Rico, a college student majoring in software development and a passionate pool enthusiast. The site was created with the goal of tracking pool game statistics and data, while aiming to provide accessibility across pool halls in the Pacific Northwest. Once fully developed, SmartPool will be available for free to all users, with appropriate credit attributed to RJ Fredrick Rico. For any inquiries related to the use of SmartPool or its content, please feel free to reach out directly to RJ.</p>
                 </div>
-                <div class="aboutusvideo">
+                <!-- <div class="aboutusvideo">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/z99qLbDy_3w?si=gG7EEjK4RTeEPJ_w&amp;start=2304" allow='autoplay' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div> -->
+            </div>
+            <div class="testing-stuff">
+                <div class="video-container">
+                    <video class="video" id="video" autoplay playsinline></video>
+                    <div class="fake-hud">Test</div>
                 </div>
             </div>
+            <button id="startBtn">Start Recording</button>
+            <button id="stopBtn" disabled>Stop Recording</button>
+            <a id="downloadLink" style="display:none">Download Recording</a>
         </div>
+        <!-- END LEFT MAIN -->
+        <!-- START RIGHT MAIN -->
         <div class="right-main">
             <div class="match-log">
-                <div class="match-log-header">
-                    <h1>Recent Matches</h1>
-                </div>
+                <div class="match-log-header"><h1>Recent Matches</h1></div>
                 <div class="match-log-legend">
-                    <div id="match-log-video-key">
-                        <p>Video</p>
-                    </div>
-                    <div id="match-log-date-key">
-                        <p>Date</p>
-                    </div>
-                    <div id="match-log-players-key">
-                        <p>Players</p>
-                    </div>
+                    <div id="match-log-video-key"><p>Video</p></div>
+                    <div id="match-log-date-key"><p>Date</p></div>
+                    <div id="match-log-players-key"><p>Players</p></div>
                 </div>
                 <div class="match-log-entries">
                     <div class="match-log-entry">
                         <div class="match-log-entry-video">
-                            <a href="https://www.youtube.com/watch?v=z99qLbDy_3w"><img src="img/poolhall.png" width="100%" height="80%" alt="thumbnail"></a>
-                        </div>
-                        <div class="match-log-entry-date">
-                            <p>04.13<br>2022</p>
-                        </div>
+                            <a href="https://www.youtube.com/watch?v=z99qLbDy_3w"><img src="img/poolhall.png" width="100%" height="80%" alt="thumbnail"></a></div>
+                        <div class="match-log-entry-date"><p>04.13<br>2022</p></div>
                         <div class="match-log-entry-players">
                             <div class="match-log-entry-player">
-                                <div class="match-log-entry-player-name">
-                                    <p>RJ Fredrick Rico</p>
-                                </div>
-                                <div class="match-log-entry-player-score">
-                                    <p>13</p>
-                                </div>
+                                <div class="match-log-entry-player-name"><p>RJ Fredrick Rico</p></div>
+                                <div class="match-log-entry-player-score"><p>13</p></div>
                             </div>
                             <div class="match-log-entry-player">
-                                <div class="match-log-entry-player-name">
-                                    <p>Nolan Dela Rosa</p>
-                                </div>
-                                <div class="match-log-entry-player-score">
-                                    <p>6</p>
-                                </div>
+                                <div class="match-log-entry-player-name"><p>Nolan Dela Rosa</p></div>
+                                <div class="match-log-entry-player-score"><p>6</p> </div>
                             </div>
                         </div>
                     </div>
                     <div class="match-log-entry">
                         <div class="match-log-entry-video">
-                            <img src="img/poolhall.png" width="100%" height="80%" alt="thumbnail">
-                        </div>
-                        <div class="match-log-entry-date">
-                            <p>08.31<br>2024</p>
-                        </div>
+                            <img src="img/poolhall.png" width="100%" height="80%" alt="thumbnail"></div>
+                        <div class="match-log-entry-date"><p>08.31<br>2024</p></div>
                         <div class="match-log-entry-players">
                             <div class="match-log-entry-player">
-                                <div class="match-log-entry-player-name">
-                                    <p>Korin An-Seong</p>
-                                </div>
-                                <div class="match-log-entry-player-score">
-                                    <p>3</p>
-                                </div>
+                                <div class="match-log-entry-player-name"><p>Korin An-Seong</p></div>
+                                <div class="match-log-entry-player-score"><p>3</p></div>
                             </div>
                             <div class="match-log-entry-player">
-                                <div class="match-log-entry-player-name">
-                                    <p>Jirou Usawa</p>
-                                </div>
-                                <div class="match-log-entry-player-score">
-                                    <p>9</p>
-                                </div>
+                                <div class="match-log-entry-player-name"><p>Jirou Usawa</p></div>
+                                <div class="match-log-entry-player-score"><p>9</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- END RIGHT MAIN -->
     </div>
 </body>
 </html>

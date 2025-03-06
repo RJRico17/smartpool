@@ -28,6 +28,29 @@ body {
     color: black;
 }
 
+/* video testing */
+.video-container {
+    display: flex;
+    width: 50%;
+}
+.testing-stuff {
+    display: flex;
+    position: relative;
+}
+.video {
+    position: absolute;
+    z-index: -1;
+}
+.fake-hud {
+    margin: auto;
+    position: relative;
+    opacity: 50%;
+    height: 50%;
+    background-color: aquamarine;
+    border: 1px solid red;
+}
+
+
 /* MAIN CONTENT */
 
 .main {
