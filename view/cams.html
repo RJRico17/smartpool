@@ -4,54 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer>
-        let mediaRecorder;
-        let recordedChunks = [];
-
-        async function setupStream() {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        const videoElement = document.getElementById('video');
-        videoElement.srcObject = stream;
-        videoElement.muted = true; // Mute the local playback to avoid feedback
-
-        mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
-
-        mediaRecorder.ondataavailable = event => {
-            if (event.data.size > 0) {
-                recordedChunks.push(event.data);
+    <link type="text/css" rel="stylesheet" href="css/backbar.css">
+    <link type="text/css" rel="stylesheet" href="../public/css/backbar.css">
+    <link type="text/css" href="../public/css/styles.css" rel="stylesheet">
+    <script>
+        async function startWebcam() {
+            try {
+                const webcamStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById('webcamVideo').srcObject = webcamStream;
+            } catch (error) {
+                console.error('Error accessing webcam:', error);
+                alert('Could not start webcam. Please check permissions.');
             }
-        };
-
-        mediaRecorder.onstop = () => {
-            const blob = new Blob(recordedChunks, { type: 'video/webm' });
-            const url = URL.createObjectURL(blob);
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = url;
-            downloadLink.download = 'recording.webm';
-            downloadLink.style.display = 'block';
-        };
-
-        document.getElementById('startBtn').addEventListener('click', () => {
-            recordedChunks = [];
-            mediaRecorder.start();
-            document.getElementById('startBtn').disabled = true;
-            document.getElementById('stopBtn').disabled = false;
-        });
-
-        document.getElementById('stopBtn').addEventListener('click', () => {
-            mediaRecorder.stop();
-            document.getElementById('startBtn').disabled = false;
-            document.getElementById('stopBtn').disabled = true;
-        });
-
-    } catch (error) {
-        console.error('Error accessing media devices:', error);
-        alert('Could not access webcam/microphone. Please check permissions.');
-    }
-}
-
-        setupStream();
+        }
+        startWebcam();
     </script>
     <style>
     body, html {
@@ -83,26 +49,55 @@
             display: flex;
             gap: 10px;
         }
-        button {
+        /* button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
         }
         #downloadLink {
-            display: block;
+            display: none;
             text-decoration: none;
             font-weight: bold;
             color: #007bff;
-        }
+            margin-top: 10px;
+        } */
     </style>
 </head>
 <body>
     <div id="container">
-        <video id="video" autoplay playsinline></video>
+        <video id="webcamVideo" autoplay playsinline></video>
         <div class="controls">
-            <button id="startBtn">Start Recording</button>
-            <button id="stopBtn" disabled>Stop Recording</button>
-            <a id="downloadLink" style="display:none">Download Recording</a>
+            <!-- <div class="record-buttons">
+                <button id="startRecord">Start Recording</button>
+                <button id="stopRecord" disabled>Stop Recording</button>
+                <a id="downloadLink">Download Recording</a>
+            </div> -->
+            <div class="backbar">
+                <div class="playeronehud">
+                    <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+                    <div class="playeronename"><span id="p1name">Lorem</span></div>
+                    <div class="playeronescore"><span id="p1score">0</span></div>
+                </div>
+                <div class="raceto">
+                    <p>Race to <span id="racetovalue">0</span></p>
+                </div>
+                <div class="playertwohud">
+                    <div class="playertwoscore"><span id="p2score">0</span></div>
+                    <div class="playertwoname"><span id="p2name">Ispum</span></div>
+                    <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+                </div>
+            </div>
+            <div class="ballbackbar">
+                <img src="img/numberBalls/one.png" id="one-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/two.png" id="two-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/three.png" id="three-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/four.png" id="four-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/five.png" id="five-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/six.png" id="six-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/seven.png" id="seven-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/eight.png" id="eight-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/nine.png" id="nine-copy" class="ball" width="45px" height="45px">
+            </div>
         </div>
     </div>
 </body>
