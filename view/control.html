@@ -4,12 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorebug Recorder</title>
+    
+    <link type="text/css" rel="stylesheet" href="css/backbar.css">
+    <link type="text/css" rel="stylesheet" href="../public/css/backbar.css">
     <style>
-        body { display: flex; font-family: Arial, sans-serif; height: 100vh; margin: 0; }
-        #controls { width: 30%; padding: 20px; background: #f4f4f4; display: flex; flex-direction: column; gap: 10px; }
-        #preview { width: 70%; display: flex; align-items: center; justify-content: center; position: relative; }
-        canvas { border: 2px solid black; }
-        input, button { padding: 8px; font-size: 16px; }
+        body {
+            display: flex;
+            font-family: Arial, sans-serif; 
+            height: 100vh; margin: 0;
+        }
+        #controls {
+            width: 70%;
+            padding: 20px;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #preview {
+            width: 30%;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        canvas {
+            border: 2px solid black;
+        }
+        input, button {
+            padding: 8px; 
+            font-size: 16px; }
+        #preview canvas, .backbar
+        {
+            position: absolute;
+        }
+        #container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -38,9 +81,38 @@
     </div>
 
     <!-- Webcam Preview + Scorebug -->
-    <div id="preview">
-        <canvas id="canvas"></canvas>
+    <div id="container">
+        <div id="preview">
+            <canvas id="canvas"></canvas>
+            <div class="backbar">
+                <div class="playeronehud">
+                    <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+                    <div class="playeronename"><span id="p1name">Lorem</span></div>
+                    <div class="playeronescore"><span id="p1score">0</span></div>
+                </div>
+                <div class="raceto">
+                    <p>Race to <span id="racetovalue">0</span></p>
+                </div>
+                <div class="playertwohud">
+                    <div class="playertwoscore"><span id="p2score">0</span></div>
+                    <div class="playertwoname"><span id="p2name">Ispum</span></div>
+                    <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+                </div>
+            </div>
+            <div class="ballbackbar">
+                <img src="img/numberBalls/one.png" id="one-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/two.png" id="two-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/three.png" id="three-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/four.png" id="four-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/five.png" id="five-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/six.png" id="six-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/seven.png" id="seven-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/eight.png" id="eight-copy" class="ball" width="45px" height="45px">
+                <img src="img/numberBalls/nine.png" id="nine-copy" class="ball" width="45px" height="45px">
+            </div>
+        </div>
     </div>
+    
 
     <script>
         const canvas = document.getElementById("canvas");

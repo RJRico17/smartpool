@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Webcam Layout</title>
     <link type="text/css" rel="stylesheet" href="css/backbar.css">
     <link type="text/css" rel="stylesheet" href="../public/css/backbar.css">
     <link type="text/css" href="../public/css/styles.css" rel="stylesheet">
@@ -20,58 +20,61 @@
         startWebcam();
     </script>
     <style>
-    body, html {
+        body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             display: flex;
+            background: #000;
+        }
+        #leftContainer {
+            width: 50%;
+            height: 100vh;
+            background: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+        #rightContainer {
+            width: 50%;
+            height: 100vh;
+            display: flex;
             justify-content: center;
             align-items: center;
             background: #000;
-        }
-        #container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            position: relative;
         }
         video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 90%;
+            height: auto;
+            border: 2px solid white;
+            border-radius: 10px;
         }
-        .controls {
+        .overlay {
             position: absolute;
-            bottom: 20px;
-            display: flex;
-            gap: 10px;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
         }
-        /* button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        #downloadLink {
-            display: none;
-            text-decoration: none;
-            font-weight: bold;
-            color: #007bff;
-            margin-top: 10px;
-        } */
     </style>
 </head>
 <body>
-    <div id="container">
+    <div id="leftContainer">
+        <!-- Empty space for adding elements -->
+        <p>Editable Work Area</p>
+    </div>
+    <div id="rightContainer">
         <video id="webcamVideo" autoplay playsinline></video>
-        <div class="controls">
-            <!-- <div class="record-buttons">
-                <button id="startRecord">Start Recording</button>
-                <button id="stopRecord" disabled>Stop Recording</button>
-                <a id="downloadLink">Download Recording</a>
-            </div> -->
+        <div class="overlay">
             <div class="backbar">
                 <div class="playeronehud">
                     <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
