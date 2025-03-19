@@ -3,105 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webcam Layout</title>
-    <link type="text/css" rel="stylesheet" href="css/backbar.css">
-    <link type="text/css" rel="stylesheet" href="../public/css/backbar.css">
+    <title>Webcam Fullscreen Canvas</title>
+    <link type="text/css" href="css/styles.css" rel="stylesheet">
     <link type="text/css" href="../public/css/styles.css" rel="stylesheet">
-    <script>
-        async function startWebcam() {
-            try {
-                const webcamStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-                document.getElementById('webcamVideo').srcObject = webcamStream;
-            } catch (error) {
-                console.error('Error accessing webcam:', error);
-                alert('Could not start webcam. Please check permissions.');
-            }
-        }
-        startWebcam();
-    </script>
     <style>
         body, html {
             margin: 0;
             padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+        canvas {
             width: 100%;
             height: 100%;
-            display: flex;
-            background: #000;
-        }
-        #leftContainer {
-            width: 50%;
-            height: 100vh;
-            background: #222;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 24px;
-        }
-        #rightContainer {
-            width: 50%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000;
             position: relative;
         }
-        video {
-            width: 90%;
-            height: auto;
-            border: 2px solid white;
-            border-radius: 10px;
-        }
-        .overlay {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 10px;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
+        .backbar {
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-    <div id="leftContainer">
-        <!-- Empty space for adding elements -->
-        <p>Editable Work Area</p>
-    </div>
-    <div id="rightContainer">
-        <video id="webcamVideo" autoplay playsinline></video>
-        <div class="overlay">
-            <div class="backbar">
-                <div class="playeronehud">
-                    <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
-                    <div class="playeronename"><span id="p1name">Lorem</span></div>
-                    <div class="playeronescore"><span id="p1score">0</span></div>
-                </div>
-                <div class="raceto">
-                    <p>Race to <span id="racetovalue">0</span></p>
-                </div>
-                <div class="playertwohud">
-                    <div class="playertwoscore"><span id="p2score">0</span></div>
-                    <div class="playertwoname"><span id="p2name">Ispum</span></div>
-                    <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
-                </div>
+    <div class="container">
+        <canvas id="webcamCanvas"></canvas>
+        <div class="backbar">
+            <div class="playeronehud">
+                <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+                <div class="playeronename"><span id="p1name">Lorem</span></div>
+                <div class="playeronescore"><span id="p1score">0</span></div>
             </div>
-            <div class="ballbackbar">
-                <img src="img/numberBalls/one.png" id="one-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/two.png" id="two-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/three.png" id="three-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/four.png" id="four-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/five.png" id="five-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/six.png" id="six-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/seven.png" id="seven-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/eight.png" id="eight-copy" class="ball" width="45px" height="45px">
-                <img src="img/numberBalls/nine.png" id="nine-copy" class="ball" width="45px" height="45px">
+            <div class="raceto">
+                <p>Race to <span id="racetovalue">0</span></p>
+            </div>
+            <div class="playertwohud">
+                <div class="playertwoscore"><span id="p2score">0</span></div>
+                <div class="playertwoname"><span id="p2name">Ispum</span></div>
+                <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
             </div>
         </div>
     </div>
+    <script>
+        const video = document.createElement('video');
+        const canvas = document.getElementById('webcamCanvas');
+        const ctx = canvas.getContext('2d');
+
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+                video.play();
+            } catch (error) {
+                console.error('Error accessing webcam:', error);
+            }
+        }
+
+        function draw() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            requestAnimationFrame(draw);
+        }
+
+        video.addEventListener('playing', draw);
+        startWebcam();
+    </script>
 </body>
 </html>

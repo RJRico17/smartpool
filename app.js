@@ -10,7 +10,7 @@ app.use(express.static('view'));
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended: true}));
 
-const PORT = 4000;
+const PORT = 5000;
 
 app.listen(PORT, (req,res) => {
     console.log(`Server is running at http://localhost:${PORT}`);
