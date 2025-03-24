@@ -117,19 +117,26 @@
     margin-left: 5%;
     visibility: visible;
 }
+
+
+
+
 /* Control buttons */
 .controls {
     display: flex;
+    flex-direction: column;
     background-color: white;
 }
-
-.controls > div {
-    border: 1px solid red;
-    flex-direction: row;
-    width: 33%;
-    padding: 10px;
+.player-controls {
+    display: flex;
 }
-
+.player-controls > div {
+    width: 50%
+}
+.playeronecontrol > button, .playertwocontrol > button {
+    padding: 5em;
+    font-size: 2em;
+}
 button {
     background-color: #555;
     border: 1px solid #555;

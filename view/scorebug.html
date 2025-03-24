@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="script.js" defer></script>
     <title>Pool Scorebug</title>
 </head>
+
 <body>
     <div class="playerinfo">
         <div class="p1info" id="p1info">
@@ -20,7 +22,8 @@
     </div>
     <div class="backbar">
         <div class="playeronehud">
-            <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+            <div class="playeroneflag"><span id="p1flag"><img src="img/none.png" width="45px" height="45px"></span>
+            </div>
             <div class="playeronename"><span id="p1name">Lorem</span></div>
             <div class="playeronescore"><span id="p1score">0</span></div>
         </div>
@@ -30,78 +33,67 @@
         <div class="playertwohud">
             <div class="playertwoscore"><span id="p2score">0</span></div>
             <div class="playertwoname"><span id="p2name">Ispum</span></div>
-            <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span></div>
+            <div class="playertwoflag"><span id="p2flag"><img src="img/none.png" width="45px" height="45px"></span>
+            </div>
         </div>
     </div>
-    <div class="ballbackbar">
-        <img src="img/numberBalls/one.png" id="one-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/two.png" id="two-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/three.png" id="three-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/four.png" id="four-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/five.png" id="five-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/six.png" id="six-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/seven.png" id="seven-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/eight.png" id="eight-copy" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/nine.png" id="nine-copy" class="ball" width="45px" height="45px">
-    </div>
-    <br><hr>
+    <br>
+    <hr>
     <p id="control-line">--SHOW HUD ABOVE ON BOTTOM OF STREAM--</p>
-    
-    <a href="cams.html" target="_blank">View Previous Scores</a><hr>
-    <h1>Controls</h1>
+    <hr>
+    <div class="neutralcontrol">
+        <input type="text" id="racevalue" placeholder="Race to Score (x/y)">
+        <button id="btnClick">Submit</button><br>
+        <button id="btnReset">Reset All</button>
+    </div>
     <div class="controls">
-        <div class="playeronecontrol">
-            <input type="text" id="userone" placeholder="Player One"></input><br>
-        <select name="p1country" id="p1country">
-            <option value="none">Select a country</option>
-            <option value="canada">Canada</option>
-            <option value="cambodia">Cambodia</option>
-            <option value="japan">Japan</option>
-            <option value="philippines">Philippines</option>
-            <option value="south-korea">South Korea</option>
-            <option value="thailand">Thailand</option>
-            <option value="ukraine">Ukraine</option>
-            <option value="united-states">United States</option>
-            <option value="vietnam">Vietnam</option>
-        </select><br>
-        <button id="p1sub">-</button><button id="p1add">+</button><br>
-        <button id="p1make">Make ball: <span id="p1mades">0</span></button><button id="p1miss">Miss Ball: <span id="p1missed">0</span></button><br>
-        <button id="p1pot">Display Pot%</button><button id="p1missed">Show Missed</button><br>
-        </div>
-        <div class="neutralcontrol">
-            <input type="number" id="racevalue" min="0" max="21" placeholder="Race to Score">
-            <button id="btnClick">Submit</button><br>
-            <button id="btnReset">Reset All</button>
-        </div>
-        <div class="playertwocontrol">
-            <input type="text" id="usertwo" placeholder="Player Two"></input><br>
-        <select name="p2country" id="p2country">
-            <option value="none">Select a country</option>
-            <option value="canada">Canada</option>
-            <option value="cambodia">Cambodia</option>
-            <option value="japan">Japan</option>
-            <option value="philippines">Philippines</option>
-            <option value="south-korea">South Korea</option>
-            <option value="thailand">Thailand</option>
-            <option value="ukraine">Ukraine</option>
-            <option value="united-states">United States</option>
-            <option value="vietnam">Vietnam</option>
-        </select><br>
-        <button id="p2sub">-</button><button id="p2add">+</button><br>
-        <button id="p2make">Make ball: <span id="p2mades">0</span></button><button id="p2miss">Miss Ball: <span id="p2missed">0</span></button><br>
-        <button id="p2pot">Display Pot%</button><button id="p2missed">Show Missed</button><br>
+
+        <div class="player-controls">
+            <div class="playeronecontrol">
+                <input type="text" id="userone" placeholder="Player One"></input><br>
+                <select name="p1country" id="p1country">
+                    <option value="none">Select a country</option>
+                    <option value="canada">Canada</option>
+                    <option value="cambodia">Cambodia</option>
+                    <option value="japan">Japan</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="south-korea">South Korea</option>
+                    <option value="thailand">Thailand</option>
+                    <option value="ukraine">Ukraine</option>
+                    <option value="united-states">United States</option>
+                    <option value="vietnam">Vietnam</option>
+                </select><br>
+                <button id="p1sub">Loss(-)</button><button id="p1add">Won(+)</button><br>
+            </div>
+            <div class="playertwocontrol">
+                <input type="text" id="usertwo" placeholder="Player Two"></input><br>
+                <select name="p2country" id="p2country">
+                    <option value="none">Select a country</option>
+                    <option value="canada">Canada</option>
+                    <option value="cambodia">Cambodia</option>
+                    <option value="japan">Japan</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="south-korea">South Korea</option>
+                    <option value="thailand">Thailand</option>
+                    <option value="ukraine">Ukraine</option>
+                    <option value="united-states">United States</option>
+                    <option value="vietnam">Vietnam</option>
+                </select><br>
+                <button id="p2sub">Loss(-)</button><button id="p2add">Add(+)</button><br>
+            </div>
         </div>
     </div>
-    <div class="ballbackbar">
+    <!-- <div class="ballbackbar">
         <img src="img/numberBalls/one.png" id="one" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/two.png" id="two" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/three.png" id="three" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/four.png" id="four" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/five.png" id="five" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/six.png" id="six" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/seven.png" id="seven" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/eight.png" id="eight" class="ball" width="45px" height="45px">
-<img src="img/numberBalls/nine.png" id="nine" class="ball" width="45px" height="45px">
-    </div>
+        <img src="img/numberBalls/two.png" id="two" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/three.png" id="three" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/four.png" id="four" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/five.png" id="five" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/six.png" id="six" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/seven.png" id="seven" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/eight.png" id="eight" class="ball" width="45px" height="45px">
+        <img src="img/numberBalls/nine.png" id="nine" class="ball" width="45px" height="45px">
+    </div> -->
 </body>
+
 </html>
